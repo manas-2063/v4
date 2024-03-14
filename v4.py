@@ -621,7 +621,6 @@ def setting():
 def passwrd():
 	os.system('clear')
 	banner()
-    print(logo)
     print(f"\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSER NAME\x1b[38;5;208m :\x1b[38;5;208m "+uname)
     print("\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mTODAY'S DATE :\x1b[38;5;208m "+date)
     print('\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mYOUR TOTAL IDz \033[0;91m:\x1b[38;5;208m ',str(len(id)))
