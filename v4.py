@@ -548,10 +548,10 @@ def passwrd():
     print(f'\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSE FLIGHT MODE FOR SPEED UP ')
     print('\x1b[38;5;231m--------------------------------------------------')
     with tred(max_workers=30) as pool:
-    	for yuzong in ids2:
-    		idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-			frs = nmf.split(' ')[0]
+		for yuzong in id2:
+			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
 			pwv = []
+			frs = nmf.split(' ')[0]
 			try:
 				lst = nmf.split(' ')[1]
 			except:
