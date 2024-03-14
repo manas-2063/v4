@@ -160,8 +160,8 @@ A2 = "[#AAAAAA]" # Abu-Abu
  
 #--------------------[ CONVERTER-BULAN ]--------------#
  
-dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
-dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
+dic = {'1':'JANUARY','2':'FEBRUARY','3':'MARCH','4':'APRIL','5':'MAY','6':'JUNE','7':'JULY','8':'AUGUST','9':'SEPTEMBER','10':'OCTOBER','11':'NOVEMBER','12':'DECEMBER'}
+dic2 = {'01':'JANUARY','02':'FEBRUARY','03':'MARCH','04':'APRIL','05':'MAY','06':'JUNE','07':'JULY','08':'AUGUST','09':'SEPTEMBER','10':'OCTOBER','11':'NOVEMBER','12':'DECEMBER'}
 tgl = datetime.datetime.now().day
 bln = dic[(str(datetime.datetime.now().month))]
 thn = datetime.datetime.now().year
@@ -212,7 +212,41 @@ os.system('espeak -a 300 " Enter,  Your,   Real,  Name,"')
 uname =input('\033[1;97m[\033[1;92m•]\033[1;97m WHAT IS YOUR NAME : \x1b[38;5;231m')
 os.system('espeak -a 300 " Welcome,   to,  MANAS,  DAJU,  Tools"')
 pass
- 
+
+#------------------[ ACCOUNT CREATION DATE]-----------------#
+
+ def tahun(fx):
+	if len(fx)==15:
+		if fx[:10] in ['1000000000']       :tahunz = '2009'
+		elif fx[:9] in ['100000000']       :tahunz = '2009'
+		elif fx[:8] in ['10000000']        :tahunz = '2009'
+		elif fx[:7] in ['1000000','1000001','1000002','1000003','1000004','1000005']:tahunz = '2009'
+		elif fx[:7] in ['1000006','1000007','1000008','1000009']:tahunz = '2010'
+		elif fx[:6] in ['100001']          :tahunz = '2010'
+		elif fx[:6] in ['100002','100003'] :tahunz = '2011'
+		elif fx[:6] in ['100004']          :tahunz = '2012'
+		elif fx[:6] in ['100005','100006'] :tahunz = '2013'
+		elif fx[:6] in ['100007','100008'] :tahunz = '2014'
+		elif fx[:6] in ['100009']          :tahunz = '2015'
+		elif fx[:5] in ['10001']           :tahunz = '2016'
+		elif fx[:5] in ['10002']           :tahunz = '2017'
+		elif fx[:5] in ['10003']           :tahunz = '2018'
+		elif fx[:5] in ['10004']           :tahunz = '2019'
+		elif fx[:5] in ['10005']           :tahunz = '2020'
+		elif fx[:5] in ['10006']           :tahunz = '2021'
+		elif fx[:5] in ['10009']           :tahunz = '2023'
+		elif fx[:4] in ['6155']            :tahunz = '2024'
+		elif fx[:5] in ['10007','10008']:tahunz = '2022'
+		else:tahunz=''
+	elif len(fx) in [9,10]:
+		tahunz = '2008'
+	elif len(fx)==8:
+		tahunz = '2007'
+	elif len(fx)==7:
+		tahunz = '2006'
+	else:tahunz=''
+	return tahunz
+	
  #------------------[ GREETINGS ]-----------------#
 
 current_time = datetime.datetime.now()
@@ -226,6 +260,69 @@ elif 17 <= current_hour < 20:
 else:
     greeting = "GOOD NIGHT     : "
     
+  #------------------[ NAME AND PSW ASK ]-------------------#  
+if not os.path.exists("data"):
+    os.mkdir("data")
+try:open("data/name.xml", "r")
+except FileNotFoundError:
+    open("data/name.xml", "w")
+    pass
+try:open("data/password.xml", "r")
+except FileNotFoundError:
+    open("data/password.xml", "w")
+    pass
+def namepsw():
+    os.system('clear')
+    banner()
+    info()
+    if os.path.exists("data/name.xml") and os.path.getsize("data/name.xml") > 0:
+        with open("data/name.xml", "r") as name_file_obj:
+            uname = name_file_obj.readline().strip()
+    else:
+        print(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR REAL NAME")
+        linex()
+        uname = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR NAME : ")
+        linex()
+        with open("data/name.xml", "w") as name_file_obj:
+            name_file_obj.write(uname)
+    if os.path.exists("data/password.xml") and os.path.getsize("data/password.xml") > 0:
+        with open("data/password.xml", "r") as password_file_obj:
+            upass = password_file_obj.readline().strip()
+    else:
+        print(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ADD A PSW TO YOUT ACCOUNT")
+        linex()
+        upass = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR PASSWORD : ")
+        linex()
+        with open("data/password.xml", "w") as password_file_obj:
+            password_file_obj.write(upass)
+    animation(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m YOUR DETAILS HAS BEEN CHANGED ")
+    restart()
+try:
+    with open('data/name.xml', 'r') as name_file:
+        uname = name_file.readline().strip()
+    with open('data/password.xml', 'r') as password_file:
+        upass = password_file.readline().strip()
+    if len(uname) > 1 and len(upass) > 1:
+        pass
+    else:
+        namepsw()
+except FileNotFoundError:
+    namepsw()
+except IOError:
+    namepsw()
+    
+def passask():
+    with open('data/password.xml', 'r') as file:
+        stored_password = file.read().strip()
+    linex()
+    user_password = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER THE PASSWORD : ")
+    if user_password == stored_password:
+        pass
+    else:
+        linex()
+        animation(" \x1b[38;5;196m[\x1b[37m×\x1b[38;5;196m]\x1b[37m ACCESS DENIED !")
+        restart()
+        
  #--------------------[ LOGIN ]--------------#
 def login():
     try:
@@ -553,7 +650,8 @@ def setting():
 #-------------------[ BAGIAN-WORDLIST ]------------#
  
 def passwrd():
-    os.system('clear')
+	os.system('clear')
+	banner()
     print(logo)
     print(f"\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSER NAME\x1b[38;5;208m :\x1b[38;5;208m "+uname)
     print("\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mTODAY'S DATE :\x1b[38;5;208m "+date)
