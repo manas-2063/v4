@@ -570,6 +570,7 @@ def passwrd():
 				lst = nmf.split(' ')[1]
 			except:
 				lst = ''
+				
 			if len(nmf)<6:
 				if len(frs)<3:
 					pass
