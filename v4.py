@@ -213,7 +213,20 @@ uname =input('\033[1;97m[\033[1;92m•]\033[1;97m WHAT IS YOUR NAME : \x1b[38;5;
 os.system('espeak -a 300 " Welcome,   to,  MANAS,  DAJU,  Tools"')
 pass
  
- 
+ #------------------[ GREETINGS ]-----------------#
+
+current_time = datetime.datetime.now()
+current_hour = current_time.hour
+if 5 <= current_hour < 12:
+    greeting = "GOOD MORNING   : "
+elif 12 <= current_hour < 17:
+    greeting = "GOOD AFTERNOON : "
+elif 17 <= current_hour < 20:
+    greeting = "GOOD EVENING   : "
+else:
+    greeting = "GOOD NIGHT     : "
+    
+ #--------------------[ LOGIN ]--------------#
 def login():
     try:
         token = open('.token.txt','r').read()
@@ -264,6 +277,7 @@ class jalan:
 def menu():
     os.system('clear')
     print(logo)
+    print(f" \x1b[37m\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m {greeting} ")
     print(f" \x1b[37m\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSER NAME\x1b[38;5;231m :\x1b[38;5;231m "+uname)
     print(f" \x1b[37m\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mTODAY'S DATE :\x1b[38;5;231m "+date)
     print('\x1b[38;5;231m-------------------------------------------------------')
@@ -548,10 +562,10 @@ def passwrd():
     print(f'\x1b[38;5;196m[\x1b[37m✓\x1b[38;5;196m]\x1b[37mUSE FLIGHT MODE FOR SPEED UP ')
     print('\x1b[38;5;231m--------------------------------------------------')
     with tred(max_workers=30) as pool:
-		for yuzong in id2:
-			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-			pwv = []
-			frs = nmf.split(' ')[0]
+        for yuzong in ids:
+        	idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+            pwv = []
+            frs = nmf.split(' ')[0]
 			try:
 				lst = nmf.split(' ')[1]
 			except:
