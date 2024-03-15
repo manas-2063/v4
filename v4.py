@@ -218,17 +218,6 @@ pass
  
  #------------------[ GREETINGS ]-----------------#
 
-current_time = datetime.datetime.now()
-current_hour = current_time.hour
-if 5 <= current_hour < 12:
-    greeting = "GOOD MORNING   : "
-elif 12 <= current_hour < 17:
-    greeting = "GOOD AFTERNOON : "
-elif 17 <= current_hour < 20:
-    greeting = "GOOD EVENING   : "
-else:
-    greeting = "GOOD NIGHT     : "
-    
   #------------------[ NAME AND PSW ASK ]-------------------#  
 
  #--------------------[ LOGIN ]--------------#
