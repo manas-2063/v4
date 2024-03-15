@@ -620,15 +620,17 @@ def setting():
  
 def passwrd():
 	os.system('clear')
+	print(logo)
 	print(f' \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m TOTAL SCANNABLE IDS    :',str(len(id)))
 	print(" \x1b[37m\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m YOU STARTED CLONING AT : "+time.strftime("%H:%M")+" "+ tag)
 	linex()
 	print(f' \x1b[38;5;196m>>\x1b[37m USE FLIGHT MODE EVERY 500 IDS ')
-    with tred(max_workers=30) as pool:
-        for yuzong in ids:
-        	idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-            pwv = []
-            frs = nmf.split(' ')[0]
+	linex()
+	with tred(max_workers=30) as pool:
+		for yuzong in id2:
+			idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+			pwv = []
+			frs = nmf.split(' ')[0]
 			try:
 				lst = nmf.split(' ')[1]
 			except:
