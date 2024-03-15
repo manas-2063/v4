@@ -230,68 +230,7 @@ else:
     greeting = "GOOD NIGHT     : "
     
   #------------------[ NAME AND PSW ASK ]-------------------#  
-if not os.path.exists("data"):
-    os.mkdir("data")
-try:open("data/name.xml", "r")
-except FileNotFoundError:
-    open("data/name.xml", "w")
-    pass
-try:open("data/password.xml", "r")
-except FileNotFoundError:
-    open("data/password.xml", "w")
-    pass
-def namepsw():
-    os.system('clear')
-    banner()
-    info()
-    if os.path.exists("data/name.xml") and os.path.getsize("data/name.xml") > 0:
-        with open("data/name.xml", "r") as name_file_obj:
-            uname = name_file_obj.readline().strip()
-    else:
-        print(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR REAL NAME")
-        linex()
-        uname = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR NAME : ")
-        linex()
-        with open("data/name.xml", "w") as name_file_obj:
-            name_file_obj.write(uname)
-    if os.path.exists("data/password.xml") and os.path.getsize("data/password.xml") > 0:
-        with open("data/password.xml", "r") as password_file_obj:
-            upass = password_file_obj.readline().strip()
-    else:
-        print(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ADD A PSW TO YOUT ACCOUNT")
-        linex()
-        upass = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER YOUR PASSWORD : ")
-        linex()
-        with open("data/password.xml", "w") as password_file_obj:
-            password_file_obj.write(upass)
-    animation(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m YOUR DETAILS HAS BEEN CHANGED ")
-    restart()
-try:
-    with open('data/name.xml', 'r') as name_file:
-        uname = name_file.readline().strip()
-    with open('data/password.xml', 'r') as password_file:
-        upass = password_file.readline().strip()
-    if len(uname) > 1 and len(upass) > 1:
-        pass
-    else:
-        namepsw()
-except FileNotFoundError:
-    namepsw()
-except IOError:
-    namepsw()
-    
-def passask():
-    with open('data/password.xml', 'r') as file:
-        stored_password = file.read().strip()
-    linex()
-    user_password = input(" \x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m ENTER THE PASSWORD : ")
-    if user_password == stored_password:
-        pass
-    else:
-        linex()
-        animation(" \x1b[38;5;196m[\x1b[37m×\x1b[38;5;196m]\x1b[37m ACCESS DENIED !")
-        restart()
-        
+
  #--------------------[ LOGIN ]--------------#
 def login():
     try:
